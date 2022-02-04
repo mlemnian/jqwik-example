@@ -24,7 +24,7 @@ public class AdderSpec {
 
     @Property
     void distributivity(@ForAll @IntRange(min = -30, max = 30) int a, @ForAll @IntRange(min = -30, max = 30) int b,
-            @ForAll @IntRange(min = 0, max = 30) int c) {
+            @ForAll @IntRange(min = -30, max = 30) int c) {
         assertEquals(cut.add(a, b) * c, cut.add(a * c, b * c));
     }
 
@@ -39,7 +39,7 @@ public class AdderSpec {
     }
 
     @Property
-    public void addingThreeisEqualToAddingThreeTimesAOne(@ForAll @IntRange(min = -30, max = 30) int a) {
+    public void addingThreeIsEqualToAddingThreeTimesAOne(@ForAll @IntRange(min = -30, max = 30) int a) {
         assertEquals(cut.add(a, 3), cut.add(cut.add(cut.add(a, 1), 1), 1));
     }
 }
